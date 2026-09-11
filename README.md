@@ -75,6 +75,7 @@ The cleaned dataset feeds a set of grouped aggregations and charts that report:
 - **Busiest month and day of the week** — measured by both units sold and
   revenue.
 - **Top customer in each country** by quantity purchased.
+- **Top-selling product in each country** by quantity sold.
 
 All logic is organized into reusable functions so the same analysis can be
 re-run on updated data with minimal changes.
