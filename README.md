@@ -14,7 +14,7 @@ it, and explores it to surface the insights the business needs.
 ## Skills Demonstrated
 
 - **Data cleaning & preparation** — removing duplicates, handling missing
-  values, and correcting invalid numeric entries.
+  values, and separating cancellations/returns from genuine sales.
 - **Feature engineering** — deriving `Year`, `Month`, `Day of Week`, and
   `Revenue` columns from raw transaction fields.
 - **Exploratory data analysis** — using groupby aggregations to rank products,
@@ -51,11 +51,14 @@ business insights, answering questions such as:
 3. **Clean the data** via a reusable `clean_data()` function:
    - drop duplicate rows,
    - remove records with a missing `CustomerID`,
-   - clip negative values in numeric columns to zero,
+   - separate out cancellations (invoices flagged with a leading `C`) so
+     returns don't distort sales totals,
    - engineer `Year`, `Month`, `DayofWeek`, and `Revenue` features.
-4. **Analyze & aggregate** — group by product, customer, country, month, and
+4. **Check for outliers** — inspect the distribution of `Quantity` (on a log
+   scale) to spot extreme values before aggregating.
+5. **Analyze & aggregate** — group by product, customer, country, month, and
    day of week to rank performance by both quantity sold and revenue.
-5. **Visualize** — plot the top 10 products, top countries, and the busiest
+6. **Visualize** — plot the top 10 products, top countries, and the busiest
    months to make patterns easy to read.
 
 ## Solution
