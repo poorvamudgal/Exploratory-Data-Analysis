@@ -19,7 +19,10 @@ it, and explores it to surface the insights the business needs.
   `Revenue` columns from raw transaction fields.
 - **Exploratory data analysis** — using groupby aggregations to rank products,
   customers, countries, and time periods.
-- **Data visualization** — communicating findings with clear bar charts.
+- **Statistical testing** — Shapiro-Wilk normality tests on `Quantity` and
+  `UnitPrice`, and a Pearson correlation between month and units sold.
+- **Data visualization** — communicating findings with clear bar charts,
+  boxplots, and a regression/trend plot.
 - **Reusable, function-driven code** — encapsulating cleaning and plotting
   logic into functions (`clean_data`, `plot_top_products`, `print_info`).
 
@@ -29,7 +32,7 @@ it, and explores it to surface the insights the business needs.
 - **pandas** — data loading, cleaning, and aggregation
 - **NumPy** — numeric operations
 - **Matplotlib** & **seaborn** — visualization
-- **SciPy** — statistical utilities
+- **SciPy** — statistical tests (Shapiro-Wilk normality, Pearson correlation)
 - **openpyxl** — reading the Excel source file
 - **Jupyter Notebook** — interactive analysis environment
 
@@ -54,12 +57,14 @@ business insights, answering questions such as:
    - separate out cancellations (invoices flagged with a leading `C`) so
      returns don't distort sales totals,
    - engineer `Year`, `Month`, `DayofWeek`, and `Revenue` features.
-4. **Check for outliers** — inspect the distribution of `Quantity` (on a log
-   scale) to spot extreme values before aggregating.
+4. **Test distributions & check outliers** — run Shapiro-Wilk normality tests
+   on `Quantity` and `UnitPrice`, and inspect their distributions with
+   log-scale boxplots to spot extreme values before aggregating.
 5. **Analyze & aggregate** — group by product, customer, country, month, and
    day of week to rank performance by both quantity sold and revenue.
 6. **Visualize** — plot the top 10 products, top countries, and the busiest
-   months to make patterns easy to read.
+   months, and use a regression plot with a Pearson correlation to examine the
+   relationship between month and units sold.
 
 ## Solution
 
